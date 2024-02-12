@@ -1,11 +1,10 @@
 from rest_framework import viewsets
 
-from tickets.models import Tickets, Tags, Statuses, TelegramUsers
+from tickets.models import Tickets, Tags, Statuses
 from api.serializers import (
     TicketsSerializer,
     TagsSerializer,
     StatusesSerializer,
-    TelegramUsersSerializer
 )
 
 
@@ -22,8 +21,3 @@ class TagsViewSet(viewsets.ModelViewSet):
 class StatusesViewSet(viewsets.ModelViewSet):
     queryset = Statuses.objects.all()
     serializer_class = StatusesSerializer
-
-
-class TelegramUsersViewSet(viewsets.ModelViewSet):
-    queryset = TelegramUsers.objects.all()
-    serializer_class = TelegramUsersSerializer
