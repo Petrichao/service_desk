@@ -1,0 +1,30 @@
+.ticket-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: auto;
+}
+
+.ticket-title {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.ticket-description {
+    font-size: 16px;
+    color: #666;
+}
+
+.ticket-details {
+    margin-top: 10px;
+}
+
+.ticket-details p {
+    margin: 5px 0;
+}
+
+.ticket-details strong {
+    font-weight: bold;
+    margin-right: 5px;
+}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}<title>Информация о дата центре К12</title>{% endblock %}
+{% block description %}<meta content="О дата центре К12" name="description">{% endblock %}
+{% block content %}
+    {% for ticket in all_tickets %}
+        <div class="ticket-card">
+            <h2 class="ticket-title">{{ ticket.title}}</h2>
+            <p class="ticket-description">{{ ticket.description }}</p>
+            <div class="ticket-details">
+                <p><strong>Автор:</strong> {{ ticket.author }}</p>
+                <p><strong>Статус:</strong> {{ ticket.status }}</p>
+                <p><strong>Тег:</strong> {{ ticket.tag }}</p>
+                <p><strong>Дата создания:</strong> {{ ticket.created }}</p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

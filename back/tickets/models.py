@@ -62,6 +62,7 @@ class Tickets(models.Model):
         null=True,
         verbose_name='Тег'
     )
+    created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f'{self.id} - {self.title}'
