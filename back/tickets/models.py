@@ -1,29 +1,12 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
+from django.contrib.auth import get_user_model
 
-
-# Create your models here.
-class TelegramUsers(models.Model):
-    telegram_id = models.IntegerField(
-        verbose_name='Телеграм ID'
-    )
-    first_name = models.CharField(
-        max_length=15,
-        verbose_name='Имя'
-    )
-    second_name = models.CharField(
-        max_length=15,
-        verbose_name='Фамилия'
-    )
-
-    def __str__(self):
-        return f'{self.second_name} {self.first_name}'
-
-    class Meta:
-        verbose_name = "Пользователь"
-        verbose_name_plural = "Пользователи"
+User = get_user_model()
 
 
 class Statuses(models.Model):
+    """Модель статусов"""
     name = models.CharField(
         max_length=15,
         verbose_name='Название'
@@ -38,6 +21,7 @@ class Statuses(models.Model):
 
 
 class Tags(models.Model):
+    """Модель тегов"""
     name = models.CharField(
         max_length=15,
         verbose_name='Название'
@@ -52,6 +36,7 @@ class Tags(models.Model):
 
 
 class Tickets(models.Model):
+    """Модель тикетов"""
     title = models.CharField(
         max_length=100,
         verbose_name='Название'
@@ -60,7 +45,7 @@ class Tickets(models.Model):
         verbose_name='Описание'
     )
     author = models.ForeignKey(
-        TelegramUsers,
+        User,
         on_delete=models.SET_NULL,
         null=True,
         verbose_name='Автор'
@@ -77,6 +62,7 @@ class Tickets(models.Model):
         null=True,
         verbose_name='Тег'
     )
+    created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f'{self.id} - {self.title}'
